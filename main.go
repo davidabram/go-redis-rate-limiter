@@ -77,7 +77,7 @@ func main() {
 
 	fmt.Printf("\nTesting rate limiter (%d requests per %d seconds):\n\n", maxRequests, timeframeSeconds)
 
-	for i := 1; i <= 8; i++ {
+	for i := range 8 {
 		allowed, err := limiter.Allow(ctx, userID)
 		if err != nil {
 			log.Printf("Error checking rate limit: %v", err)
@@ -85,9 +85,9 @@ func main() {
 		}
 
 		if allowed {
-			fmt.Printf("Request %d: ALLOWED\n", i)
+			fmt.Printf("Request %d: ALLOWED\n", i+1)
 		} else {
-			fmt.Printf("Request %d: DENIED (rate limit exceeded) \n", i)
+			fmt.Printf("Request %d: DENIED (rate limit exceeded) \n", i+1)
 		}
 
 		time.Sleep(500 * time.Millisecond)

@@ -2,7 +2,10 @@ module rate-limiter
 
 go 1.25.4
 
-require github.com/redis/go-redis/v9 v9.17.2
+require (
+	github.com/redis/go-redis/v9 v9.17.2
+	golang.org/x/sync v0.19.0
+)
 
 require (
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
